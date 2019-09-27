@@ -38,7 +38,7 @@ class BlockChain {
     }
 
     for (let i = 1; i < chain.length; i++) {
-      const { timestamp, lastHash, hash, data } = chain[i]
+      const { timestamp, lastHash, hash, nonce, difficulty, data } = chain[i]
       const actualLastHash = chain[i - 1].hash
 
       // ensure each block's lastHash eq last block's hash
@@ -47,7 +47,13 @@ class BlockChain {
       }
 
       // ensure cryptoHash() output eq to hash itself
-      const validateHash = cryptoHash(timestamp, lastHash, data)
+      const validateHash = cryptoHash(
+        timestamp,
+        lastHash,
+        data,
+        nonce,
+        difficulty
+      )
       if (hash !== validateHash) {
         return false
       }
