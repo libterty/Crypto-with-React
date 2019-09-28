@@ -38,8 +38,9 @@ class Blockchain {
 
     for (let i = 1; i < chain.length; i++) {
       const { timestamp, lastHash, hash, nonce, difficulty, data } = chain[i];
-
       const actualLastHash = chain[i - 1].hash;
+      const lastDiffculty = chain[i - 1].difficulty;
+
       // ensure each block's lastHash eq last block's hash
       if (lastHash !== actualLastHash) return false;
 
@@ -52,6 +53,8 @@ class Blockchain {
       );
       // ensure cryptoHash() output eq to hash itself
       if (hash !== validatedHash) return false;
+      // ensure the prevention of the difficulty jump
+      if (lastDiffculty - difficulty > 1) return false;
     }
 
     return true;

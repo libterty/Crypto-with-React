@@ -21,5 +21,8 @@
         "semi": true,
         "userTabs": true,
         "singleQuote": true
+    },
+    "dependencies": {
+        "hex-to-binary": "^1.0.1"
     }
 }
