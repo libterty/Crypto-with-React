@@ -111,10 +111,10 @@ describe('Transaction', () => {
       });
 
       it('outputs the amount to the next recipient', () => {
-        console.log(
-          'amount to the next recipient',
-          transaction.outputMap[nextRecipient]
-        );
+        // console.log(
+        //   'amount to the next recipient',
+        //   transaction.outputMap[nextRecipient]
+        // );
         expect(transaction.outputMap[nextRecipient]).toEqual(nextAmount);
       });
 
@@ -125,7 +125,7 @@ describe('Transaction', () => {
       });
 
       it('maintians a total output that matches the input amount', () => {
-        console.log('transaction.outputMap', transaction);
+        // console.log('transaction.outputMap', transaction);
         expect(
           Object.values(transaction.outputMap).reduce(
             (total, outputAmount) => total + outputAmount

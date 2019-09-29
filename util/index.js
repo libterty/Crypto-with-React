@@ -4,7 +4,7 @@ const cryptoHash = require('./crypto-hash');
 
 const verifySignature = ({ publicKey, data, signature }) => {
   const keyFromPublic = ec.keyFromPublic(publicKey, 'hex');
-  console.log('keyFromPublic', keyFromPublic);
+  // console.log('keyFromPublic', keyFromPublic);
   return keyFromPublic.verify(cryptoHash(data), signature);
 };
 
