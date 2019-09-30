@@ -67,15 +67,21 @@
         ]
     },
     "dependencies": {
+        "babel-core": "^6.26.3",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
         "body-parser": "^1.19.0",
         "elliptic": "^6.4.1",
         "express": "^4.17.1",
         "hex-to-binary": "^1.0.1",
+        "html-react-parser": "^0.9.1",
         "parcel-bundler": "^1.10.3",
         "react": "^16.6.0",
         "react-dom": "^16.6.0",
         "redis": "^2.8.0",
-        "uuid": "^3.3.2",
-        "request": "^2.88.0"
+        "request": "^2.88.0",
+        "uuid": "^3.3.2"
     }
 }

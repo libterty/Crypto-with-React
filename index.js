@@ -21,6 +21,60 @@ const transactionMiner = new TransactionMiner({
 });
 
 const DEFAULT_PORT = 3000;
+const walletFoo = new Wallet();
+const walletBar = new Wallet();
+
+// helper fn
+const generateWalletTransaction = ({ recipient, amount }) => {
+  const transaction = wallet.createTransaction({
+    recipient,
+    amount,
+    chain: blockchain.chain
+  });
+
+  transactionPool.setTransaction(transaction);
+};
+
+/**
+ * dev use
+ * manually create, rooting by wallet, foo, bar, wallet...
+ */
+const walletAction = () =>
+  generateWalletTransaction({
+    wallet,
+    recipient: walletFoo.publicKey,
+    amount: 5
+  });
+
+const walletFooAction = () =>
+  generateWalletTransaction({
+    wallet: walletFoo,
+    recipient: walletBar.publicKey,
+    amount: 10
+  });
+
+const walletBarAction = () =>
+  generateWalletTransaction({
+    wallet: walletBar,
+    recipient: wallet.publicKey,
+    amount: 15
+  });
+
+for (let i = 0; i < 10; i++) {
+  if (i % 3 === 0) {
+    walletAction();
+    walletFooAction();
+  } else if (i % 3 === 1) {
+    walletAction();
+    walletBarAction();
+  } else {
+    walletFooAction();
+    walletBarAction();
+  }
+
+  transactionMiner.mineTransactions();
+}
+
 let PEER_PORT;
 const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
 

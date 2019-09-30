@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import App from './components/App';
+import './index.css';
 
-render(
-  <div> Cryptochain in React: Live Update, second update, third update </div>,
-  document.getElementById('root')
-);
+render(<App />, document.getElementById('root'));
