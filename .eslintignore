@@ -4,3 +4,11 @@
 /coverage
 Dockerfile
 docker-compose.test.yml
+*.test.js
+/client/dist
+.cache
+/app
+/blockchain
+/scripts
+/util
+/wallet

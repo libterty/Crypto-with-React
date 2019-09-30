@@ -45,7 +45,7 @@ class Blockchain {
       const transactionSet = new Set();
       let rewardTransactionCount = 0;
 
-      for (let transaction of block.data) {
+      for (const transaction of block.data) {
         if (transaction.input.address === REWARD_INPUT.address) {
           rewardTransactionCount += 1;
           // and the transaction data has multiple rewards
@@ -84,9 +84,8 @@ class Blockchain {
               'An identical transaction appears more than once in the block'
             );
             return false;
-          } else {
-            transactionSet.add(transaction);
           }
+          transactionSet.add(transaction);
         }
       }
     }

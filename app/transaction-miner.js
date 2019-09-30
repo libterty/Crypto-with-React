@@ -21,7 +21,7 @@ class TransactionMiner {
     this.transactionPool.clear();
     // generate the miner's reward
     // add a block consisting of these transactions to the blockchain
-    //broadcast the updated blockchain
+    // broadcast the updated blockchain
     // clear the pool
   }
 }

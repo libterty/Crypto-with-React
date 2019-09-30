@@ -6,3 +6,4 @@
 *.txt
 /public
 *.rdb
+.cache
