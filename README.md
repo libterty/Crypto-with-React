@@ -16,8 +16,25 @@
 ## Experience Feature
 
 Both website are interactive with each others, each website can allow conduct transaction and mine transaction with each others.
-[Visit Production Demo](https://boiling-waters-75836.herokuapp.com)
-[Another Proudction Demo for Peer](https://warm-mountain-52007.herokuapp.com)
+- [Visit Production Demo](https://boiling-waters-75836.herokuapp.com)
+- [Another Proudction Demo for Peer](https://warm-mountain-52007.herokuapp.com)
+
+Home page
+![image](https://github.com/libterty/Crypto-with-React/tree/master/client/src/assets/Home.png)
+
+Conduct Transaction page
+![image](https://github.com/libterty/Crypto-with-React/tree/master/client/src/assets/Conduct.png)
+
+Transaction Pool page
+![image](https://github.com/libterty/Crypto-with-React/tree/master/client/src/assets/Pool.png)
+
+Mine Transaction page
+![image](https://github.com/libterty/Crypto-with-React/tree/master/client/src/assets/Mine.png)
+
+## Blockchain Concept Reference
+- [White-Paper](https://github.com/ethereum/wiki/wiki/White-Paper)
+- [Yellow-Paper](https://ethereum.github.io/yellowpaper/paper.pdf)
+- [beigepaper](https://github.com/chronaeon/beigepaper/blob/master/beigepaper.pdf)
 
 ## Project Setup
 
