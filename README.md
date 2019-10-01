@@ -15,7 +15,7 @@
 
 ## Experience Feature
 
-[Visit Production Demo](https://boiling-waters-75836.herokuapp.com/blocks)
+[Visit Production Demo](https://boiling-waters-75836.herokuapp.com)
 
 ## Project Setup
 
