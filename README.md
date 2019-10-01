@@ -10,12 +10,14 @@
 
 - Node
 - git
-- Redis
+- [Redis](https://medium.com/@petehouston/install-and-config-redis-on-mac-os-x-via-homebrew-eb8df9a4f298)
 - React
 
 ## Experience Feature
 
+Both website are interactive with each others, each website can allow conduct transaction and mine transaction with each others.
 [Visit Production Demo](https://boiling-waters-75836.herokuapp.com)
+[Another Proudction Demo for Peer](https://warm-mountain-52007.herokuapp.com)
 
 ## Project Setup
 
