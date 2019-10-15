@@ -9,10 +9,12 @@ class Wallet {
     this.publicKey = this.keyPair.getPublic().encode('hex');
   }
 
+  // each signature has to verify first in order to grant the right address has been sent
   sign(data) {
     return this.keyPair.sign(cryptoHash(data));
   }
 
+  // each transaction amount cannot exceed itself balance
   createTransaction({ recipient, amount, chain }) {
     if (chain) {
       this.balance = Wallet.calculateBalance({
@@ -28,6 +30,7 @@ class Wallet {
     return new Transaction({ senderWallet: this, recipient, amount });
   }
 
+  // ensure the atomicity of each transaction
   static calculateBalance({ chain, address }) {
     let hashCounductedTransaction = false;
     let outputsTotal = 0;

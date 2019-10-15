@@ -9,20 +9,19 @@ class TransactionMiner {
   }
 
   mineTransactions() {
-    const validTransactions = this.transactionPool.validTransactions();
     // get the transaction pool's valid transactions
+    const validTransactions = this.transactionPool.validTransactions();
+    // broadcast the chain
     validTransactions.push(
+      // generate the miner's reward
       Transaction.rewardTransaction({ minerWallet: this.wallet })
     );
-    this.blockchain.addBlock({ data: validTransactions });
-    // broadcast the chain
-    this.pubsub.broadcastChain();
-    // clear the chain
-    this.transactionPool.clear();
-    // generate the miner's reward
     // add a block consisting of these transactions to the blockchain
+    this.blockchain.addBlock({ data: validTransactions });
     // broadcast the updated blockchain
+    this.pubsub.broadcastChain();
     // clear the pool
+    this.transactionPool.clear();
   }
 }
 

@@ -12,6 +12,7 @@ class Transaction {
       input || this.createInput({ senderWallet, outputMap: this.outputMap });
   }
 
+  // ensure consistency while generate OutputMap for both sender and recipient
   createOutputMap({ senderWallet, recipient, amount }) {
     const outputMap = {};
 
@@ -52,16 +53,19 @@ class Transaction {
   }
 
   update({ senderWallet, recipient, amount }) {
+    // Amount should not exceeds balance
     if (amount > this.outputMap[senderWallet.publicKey]) {
       throw new Error('Amount excedds balance');
     }
 
+    // sender's and receipient's
     if (!this.outputMap[recipient]) {
       this.outputMap[recipient] = amount;
     } else {
       this.outputMap[recipient] = this.outputMap[recipient] + amount;
     }
 
+    // balance needs to regenerate
     this.outputMap[senderWallet.publicKey] =
       this.outputMap[senderWallet.publicKey] - amount;
     this.input = this.createInput({ senderWallet, outputMap: this.outputMap });
