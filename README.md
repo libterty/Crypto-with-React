@@ -1,5 +1,7 @@
 # A crypto-chain project with React
 
+[![CircleCI](https://circleci.com/gh/libterty/Crypto-with-React/tree/master.svg?style=svg)](https://circleci.com/gh/libterty/Crypto-with-React/tree/master)
+
 - Full-on Backend with TDD.
 - Full frontend React.js
 - A real-time connected peer-to-peer server setup with redis pub/sub.
