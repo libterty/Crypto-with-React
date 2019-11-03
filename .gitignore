@@ -7,3 +7,4 @@
 /public
 *.rdb
 .cache
+test_results/

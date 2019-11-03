@@ -16,7 +16,14 @@
         "coverage": "jest --collectCoverage=true"
     },
     "jest": {
-        "testEnvironment": "node"
+        "testEnvironment": "node",
+        "reporters": [
+            "default",
+            "jest-junit"
+        ]
+    },
+    "jest-junit": {
+        "outputDirectory": "test_results/junit"
     },
     "keywords": [],
     "author": "",
@@ -34,6 +41,7 @@
         "eslint-plugin-react": "^7.14.3",
         "husky": "^3.0.7",
         "jest": "^23.6.0",
+        "jest-junit": "^9.0.0",
         "lint-staged": "^9.4.0",
         "nodemon": "^1.19.2",
         "prettier": "^1.18.2",

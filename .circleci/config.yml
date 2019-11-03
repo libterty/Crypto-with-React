@@ -1,26 +1,27 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/jest
+    parallelism: 3
     docker:
-      - image: circleci/node:10.0
+      # I want to make sure I know exactly what version I'm using
+      - image: circleci/node:10.16.3
+
+    working_directory: ~/repo
+
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-      - run: npm install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - run: npm test
-    steps:
-      - checkout
-      - run: npm install
+
+      - run: npm ci
+
       - run:
-          name: "Run Jest and Collect Coverage Reports"
-          command: jest --collectCoverage=true
+          name: Run Jest tests using test splitting
+          command: |
+            TESTFILES=$(circleci tests glob "test/**/*.test.js" | circleci tests split --split-by=timings)
+            npm test $TESTFILES
+
+      - store_test_results:
+          path: test_results
+
       - store_artifacts:
-          path: coverage
+          path: test_results
+          destination: test_results
