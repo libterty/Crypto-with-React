@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "lint": "eslint --format table --fix .",
-        "test": "jest --watchAll",
+        "test": "jest --maxWorkers=2",
         "start": "npm run build-client & node index.js",
         "dev": "npm run dev-client & npm run start-redis && cross-env ENV='development' nodemon index.js",
         "dev-peer": "cross-env GENERATE_PEER_PORT='true' ENV='development' nodemon index.js",
