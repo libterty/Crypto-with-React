@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "lint": "eslint --format table --fix .",
-        "test": "jest --maxWorkers=2",
+        "test": "jest --maxWorkers=2 && codecov",
         "start": "npm run build-client & node index.js",
         "dev": "npm run dev-client & npm run start-redis && cross-env ENV='development' nodemon index.js",
         "dev-peer": "cross-env GENERATE_PEER_PORT='true' ENV='development' nodemon index.js",
@@ -17,10 +17,8 @@
     },
     "jest": {
         "testEnvironment": "node",
-        "reporters": [
-            "default",
-            "jest-junit"
-        ]
+        "coverageDirectory": "./coverage/",
+        "collectCoverage": true
     },
     "jest-junit": {
         "outputDirectory": "test_results/junit"
@@ -30,6 +28,7 @@
     "license": "ISC",
     "devDependencies": {
         "babel-eslint": "^10.0.3",
+        "codecov": "^3.6.1",
         "cross-env": "^5.2.0",
         "eslint": "^6.5.0",
         "eslint-config-airbnb": "^18.0.1",
